@@ -12,6 +12,8 @@ before_script:
   - mkdir -p shippable/codecoverage
   - mysql -e 'create database if not exists test;'
   - mysql -ushippable -e "show variables like '%version';"
+  
+build_image: shippable/minv2
 
 script:
   - nosetests test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
