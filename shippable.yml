@@ -10,7 +10,7 @@ install:
 
 # Make folders for the reports, and create the SQL db
 before_script:
-  - mysqld_safe &
+  - mysqld_safe 2>&1 > /dev/null &
   - sleep 5
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
