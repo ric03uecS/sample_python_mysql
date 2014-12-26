@@ -10,6 +10,8 @@ install:
 
 # Make folders for the reports, and create the SQL db
 before_script:
+  - mysqld_safe &
+  - sleep 5
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   - mysql -e 'create database if not exists test;'
