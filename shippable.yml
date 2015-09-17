@@ -4,8 +4,8 @@ python:
   - 2.7
   
 before_install:
-  - ps -eaf | grep "/usr/bin/mysqld_safe" | awk '{print $2}'
-  - sudo killall -9 mysqld_safe
+  - pids=$(ps -eaf | grep "/usr/bin/mysqld_safe" | awk '{print $2}')
+  - sudo kill -9 $pids || true
 install:
   - pip install -r requirements.txt
 
