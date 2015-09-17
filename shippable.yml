@@ -4,7 +4,7 @@ python:
   - 2.7
   
 before_install:
-  - pids=$(ps -eaf | grep "/usr/bin/mysqld_safe" | awk '{print $2}')
+  - pids=$(ps -eaf | grep "/usr/bin/mysqld_safe" | awk '{print $2}' | head -1)
   - echo $pids
   - ps -eaf
   - sudo pkill -9 $pids || true
