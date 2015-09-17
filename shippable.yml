@@ -5,7 +5,7 @@ python:
   
 before_install:
   - pids=$(ps -eaf | grep "/usr/bin/mysqld_safe" | awk '{print $2}')
-  - sudo kill -9 $pids || true
+  - sudo pkill -9 $pids || true
 install:
   - pip install -r requirements.txt
 
